@@ -1,5 +1,5 @@
 "use cache";
-export const dynamic = 'force-dynamic';
+
 import SectionHeader from "@/components/common/section-header";
 import VotingButtons from "@/components/products/voting-buttons";
 import { Badge } from "@/components/ui/badge";
@@ -18,12 +18,10 @@ import {
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-export const generateStaticParams = async () => {
-  const products = await getFeaturedProducts();
-  return products.map((product) => ({
-    slug: product.slug.toString(),
-  }));
-};
+export async function generateStaticParams() {
+  // Agar database empty hai, toh kam se kam ek fallback route return karna zaroori hai
+  return [{ slug: "fallback-product" }];
+}
 
 export default async function Product({
   params,
