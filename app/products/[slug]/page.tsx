@@ -1,5 +1,5 @@
 "use cache";
-
+export const dynamic = 'force-dynamic';
 import SectionHeader from "@/components/common/section-header";
 import VotingButtons from "@/components/products/voting-buttons";
 import { Badge } from "@/components/ui/badge";
